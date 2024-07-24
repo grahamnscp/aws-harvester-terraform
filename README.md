@@ -55,7 +55,7 @@ BOOTSTRAPADMINPWD=admin
 
 ## Installation
 
-### Infra for the cluster (2 minutes apply + 2-3 minutes for rke2 cluster to be ready)
+### Infra for the cluster
 ```
 cd tf
 terraform init
@@ -176,7 +176,7 @@ note: Added `./ssh/known_hosts` entries for the hosts should be manually tidied 
 
 
 ## Contribution
-Very happy to colaborate and learn from others, if you spot something please get in touch and help where I fall short :)
+Very happy to colaborate and learn from others, if you spot something please get in touch and help where I fall short :)  
 This repo is a dev / test setup of Harvester and sharing as it's useful to make config / version changes and quickly see the results, it also helped me dig into how Harvester is constructed.
 
 
