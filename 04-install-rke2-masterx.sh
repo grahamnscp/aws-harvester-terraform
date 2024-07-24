@@ -45,7 +45,7 @@ function rke2joinmasterxwait
 
   Log "function rke2joinmasterxwait: for node $NODENUM"
 
-  # wait until cluster nodes read
+  # wait until cluster nodes ready
   Log "\__Waiting for new RKE2 cluster node to be Ready.."
   READY=false
   while ! $READY
@@ -55,7 +55,7 @@ function rke2joinmasterxwait
       echo -n 0
       echo
       Log "-\__RKE2 cluster nodes are Ready:"
-      kubectl --kubeconfig=./local/admin.conf get nodes --show-labels=true
+      kubectl --kubeconfig=./local/admin.conf get nodes
       READY=true
     else
       echo -n ${NRC}.

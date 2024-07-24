@@ -91,7 +91,7 @@ do
     echo -n 0
     echo
     Log "-\__RKE2 cluster nodes are Ready:"
-    kubectl --kubeconfig=./local/admin.conf get nodes --show-labels=true
+    kubectl --kubeconfig=./local/admin.conf get nodes
     READY=true
   else
     echo -n ${NRC}.
