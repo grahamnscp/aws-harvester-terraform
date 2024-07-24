@@ -55,7 +55,7 @@ BOOTSTRAPADMINPWD=admin
 
 ## Installation
 
-### Infra for the cluster
+### Provision Infra for the cluster
 ```
 cd tf
 terraform init
@@ -70,7 +70,7 @@ cd ..
 ./00--clean-local-dir
 ```
 
-### RKE2 install - node 1
+### RKE2 install - master 1
 
 Due to the way Harvester configures the underlying Kubernetes cluster parameters it 
 is necessary to initially fully install the first node before adding additional nodes
@@ -86,7 +86,7 @@ the terraform output values.  Addionally there is a `utils.sh` which is included
 provide some log highlighting functions and elapsed duration values.
 
 
-### Rancher install - node 1
+### Rancher install - master 1
 
 Rancher Manager is used as part of Harvester, notably the UI, monitoring etc
 
@@ -95,7 +95,7 @@ Rancher install is handled by running the script:
 ./02-install-rancher.sh
 ```
 
-### Harvester
+### Harvester install - master 1
 
 Harvester components are installed by running the script:
 ```
