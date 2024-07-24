@@ -61,8 +61,8 @@ git clone https://github.com/rancher/charts -b ${RANCHERCHARTSBRANCH} ./local/ra
 Log "\__helm install rancher-monitoring-crd (${RANCHERMONITORINGCRD}).."
 helm install rancher-monitoring-crd ./local/rancher/charts/rancher-monitoring-crd/${RANCHERMONITORINGCRD}/
 
-Log "\__pausing............20"
-sleep 20
+Log "\__pausing............30"
+sleep 30
 
 LogElapsedDuration
 LogCompleted "Done."

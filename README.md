@@ -48,8 +48,7 @@ RANCHERCHARTSBRANCH="release-v2.8"
 RANCHERMONITORINGCRD="103.1.0+up45.31.1"
 
 # harvester
-#HARVESTERREPOBRANCH="v1.3"
-HARVESTERREPOBRANCH="master"
+HARVESTERREPOBRANCH="release-1.3"
 BOOTSTRAPADMINPWD=admin
 ```
 
@@ -106,12 +105,7 @@ Note that this takes some time to complete, the script will loop waiting for the
 resources to all become complete, the loop displays a count of componets still "settling" or
 failing.
 
-Harvester addons are configured using the bare-metal installer, this dev install approach
-does not have access to that so I have reverse engineered a couple of them from a post 
-installed GA Harvester cluster, namely `vm-import-controller` and `rancher-monitoring`, WIP
-to add more of the addons.
-
-Another component reverse engineered from the GA installer is an internal bootstrap 
+A component reverse engineered from the GA installer is an internal bootstrap 
 helm repo service, this is deployed using resource definitions in the `harvester-bootstrap-repo` 
 subdirectory
 
@@ -135,6 +129,21 @@ before progressing to the next, this is achieved using the script:
 ```
 ./04-install-rke2-masterx.sh
 ```
+
+
+### Harvester Addons
+
+Harvester addons are configured using the bare-metal installer, this dev install approach
+does not have access to that so I have reverse engineered a couple of them from a post 
+installed GA Harvester cluster, namely `vm-import-controller` and `rancher-monitoring`, WIP
+to add more of the addons.
+
+Load the harvester addons using the script:
+```
+./05-load-harvester-addons.sh
+```
+
+
 
 ### Post Config
 There are addional storage volumes attached to the instances, these can be added to 

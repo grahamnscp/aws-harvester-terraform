@@ -48,22 +48,26 @@ helm install harvester ./local/harvester/deploy/charts/harvester --namespace har
         --set rancherEmbedded=true \
         --set service.vip.enabled=false
 
-Log "\__pausing............400"
-sleep 400
+Log "\__pausing............300"
+sleep 300
 
-
-Log "\__load harvester addons.."
-cp ./addons/rancher-monitoring.yaml.template ./local/rancher-monitoring.yaml
-sed -i '' "s/MASTER1PRIVATEIP/$PRIVATEIP/g" ./local/rancher-monitoring.yaml
-kubectl create namespace cattle-monitoring-system
-kubectl apply -f ./local/rancher-monitoring.yaml
-
-cp ./addons/vm-import-controller.yaml.template ./local/vm-import-controller.yaml
-kubectl apply -f ./local/vm-import-controller.yaml
-
-Log "\__pausing............120"
-sleep 120
-
+# wait until resources fully up
+Log "\__Waiting for Harvester resources to be initialised.."
+sleep 30
+READY=false
+while ! $READY
+do
+  NRC=`kubectl --kubeconfig=./local/admin.conf get pods --all-namespaces 2>&1 | egrep -v 'Running|Completed|NAMESPACE' | wc -l`
+  if [ $NRC -eq 0 ]; then
+    echo -n 0
+    echo
+    Log " \__All resources are now initialised."
+    READY=true
+  else
+    echo -n ${NRC}.
+    sleep 10
+  fi
+done
 
 echo 
 echo 
