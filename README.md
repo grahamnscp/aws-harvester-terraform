@@ -116,6 +116,10 @@ helm repo service, this is deployed using resource definitions in the `harvester
 subdirectory
 
 
+### Example install output
+[Example Install Output](docs/example-install-output.md)
+
+
 ### UI Access
 If all was successful, access the cluster at 
 ```
