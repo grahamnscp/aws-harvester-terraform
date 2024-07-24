@@ -167,8 +167,7 @@ note: Added `./ssh/known_hosts` entries for the hosts should be manually tidied 
 
 
 ## Current Issues
-* Needs bare metal instance types for nested virtualisation
-* addons - only prepared the manifests for a couple of them, plan to add the rest at some point
+* Addons - only prepared the manifests for a couple of them, plan to add the rest at some point
 * Adding additional nodes is somewhat unreliable, some things don't always initialise, think there is a timing condition somewhere
 * VM Networking, need to extend my AWS knowledge to provide a pool of *valid* IPs to the second subnet that can be used. Also concerned there may be issues with the vxlan traffic in AWS infra that might need addional network config when created.  VM guest networking does works when connecting to the management network with cni NAT IP address assignments etc.
 * Image import local file upload has a 10MB limitation from the AWS nginx ingress components so need to use URL image instead, example `https://download.cirros-cloud.net/0.5.1/cirros-0.5.1-x86_64-disk.img` - note Cirros image doesn't support cloud-init
