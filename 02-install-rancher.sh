@@ -55,7 +55,7 @@ do
 done
 
 
-Log "\__Git clone rancher/charts (-b ${RANCHERCHARTSBRANCH}).."
+Log "\__git clone rancher/charts (-b ${RANCHERCHARTSBRANCH}).."
 git clone https://github.com/rancher/charts -b ${RANCHERCHARTSBRANCH} ./local/rancher/
 
 Log "\__helm install rancher-monitoring-crd (${RANCHERMONITORINGCRD}).."

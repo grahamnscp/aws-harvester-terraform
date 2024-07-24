@@ -23,7 +23,7 @@ kubectl apply -f harvester-bootstrap-repo/harvester-bootstrap-repo-clusterrepo.y
 Log "\__create namespace harvester-system.."
 kubectl create ns harvester-system
 
-Log "\__Git clone harvester (-b ${HARVESTERREPOBRANCH}).."
+Log "\__git clone harvester (-b ${HARVESTERREPOBRANCH}).."
 git clone https://github.com/harvester/harvester.git -b ${HARVESTERREPOBRANCH} ./local/harvester/
 
 Log "\__helm install harvester-crd.."
