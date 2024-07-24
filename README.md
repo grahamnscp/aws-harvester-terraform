@@ -2,7 +2,7 @@
 WIP - Terraform to bootstrap DevTest Harvester cluster on AWS EC2 metal instances
 
 ## Harvester on AWS Metal
-![harvester-dashboard](./assets/harvester-aws-metal.png)
+![harvester-dashboard](./assets/harvester-dashboard.png)
 
 ## Overview
 The terraform creates a 3 nodes with multiple NICs and multiple subnets
