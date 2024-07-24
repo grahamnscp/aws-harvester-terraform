@@ -48,8 +48,8 @@ helm install harvester ./local/harvester/deploy/charts/harvester --namespace har
         --set rancherEmbedded=true \
         --set service.vip.enabled=false
 
-Log "\__pausing............300"
-sleep 300
+Log "\__pausing............400"
+sleep 400
 
 
 Log "\__load harvester addons.."
@@ -61,8 +61,8 @@ kubectl apply -f ./local/rancher-monitoring.yaml
 cp ./addons/vm-import-controller.yaml.template ./local/vm-import-controller.yaml
 kubectl apply -f ./local/vm-import-controller.yaml
 
-Log "\__pausing............90"
-sleep 90
+Log "\__pausing............120"
+sleep 120
 
 
 echo 
