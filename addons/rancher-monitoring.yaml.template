@@ -1,0 +1,92 @@
+apiVersion: harvesterhci.io/v1beta1
+kind: Addon
+metadata:
+  annotations:
+  generation: 4
+  managedFields:
+  name: rancher-monitoring
+  namespace: cattle-monitoring-system
+spec:
+  chart: rancher-monitoring
+  enabled: true
+  repo: http://harvester-cluster-repo.cattle-system.svc/charts
+  valuesContent: |
+    prometheus:
+      prometheusSpec:
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 2500Mi
+          requests:
+            cpu: 750m
+            memory: 1750Mi
+        evaluationInterval: 1m
+        scrapeInterval: 1m
+        retention: 5d
+        retentionSize: 50GiB
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              accessModes:
+                - ReadWriteOnce
+              resources:
+                requests:
+                  storage: 50Gi
+              storageClassName: harvester-longhorn
+              volumeMode: Filesystem
+        externalUrl: >-
+          https://MASTER1PRIVATEIP/api/v1/namespaces/cattle-monitoring-system/services/http:rancher-monitoring-prometheus:9090/proxy/
+      service:
+        port: 9090
+    prometheus-node-exporter:
+      resources:
+        limits:
+          cpu: 200m
+          memory: 180Mi
+        requests:
+          cpu: 100m
+          memory: 30Mi
+    grafana:
+      resources:
+        limits:
+          cpu: 200m
+          memory: 500Mi
+        requests:
+          cpu: 100m
+          memory: 200Mi
+      persistence:
+        enabled: true
+        size: 2Gi
+        storageClassName: harvester-longhorn
+        type: pvc
+        accessModes:
+          - ReadWriteOnce
+    alertmanager:
+      enabled: true
+      alertmanagerSpec:
+        retention: 120h
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 600Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        externalUrl: >-
+          https://MASTER1PRIVATEIP/api/v1/namespaces/cattle-monitoring-system/services/http:rancher-monitoring-alertmanager:9093/proxy/
+        storage:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: harvester-longhorn
+              accessModes:
+                - ReadWriteOnce
+              resources:
+                requests:
+                  storage: 5Gi
+      config:
+        global:
+          resolve_timeout: 5m
+      service:
+        port: 9093
+  version: 103.0.3+up45.31.1
+status:

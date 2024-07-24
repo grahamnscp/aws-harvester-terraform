@@ -1,0 +1,15 @@
+apiVersion: harvesterhci.io/v1beta1
+kind: Addon
+metadata:
+  annotations:
+  generation: 3
+  managedFields:
+  name: vm-import-controller
+  namespace: harvester-system
+spec:
+  chart: harvester-vm-import-controller
+  enabled: true
+  repo: http://harvester-cluster-repo.cattle-system.svc/charts
+  valuesContent: >-
+    {"resources":{"requests":{"cpu":"0.5","memory":"2Gi"},"limits":{"cpu":"2","memory":"4Gi"}},"pvcClaim":{"enabled":true,"size":"200Gi","storageClassName":"harvester-longhorn"}}
+  version: 0.1.7

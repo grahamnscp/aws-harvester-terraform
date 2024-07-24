@@ -1,0 +1,47 @@
+# aws-cli Profile to use
+aws_profile = "default"
+
+# tags to use on the AWS resources (default_tags)
+aws_tags = {
+     Owner          = "me"
+     expirationDate = "2024-07-26"
+     Purpose        = "DevTest"
+}
+
+# Prefix name that we prepend to the instance names
+prefix = "harv"
+
+# ingress CIDRs
+ip_cidr_me = "11.111.111.111/32"
+ip_cidr_work = "222.22.22.222/32"
+
+# AWS EC2 instance type
+# t3.medium     2 vcpu - 32GB mem - 5Gb/s
+# c5.4xlarge   16 vcpu - 32GB mem - 10Gb/s      0.680 $/h
+# c5a.8xlarge  16 vcpu - 32GB mem - 10Gb/s      0.616 $/h
+# c5.metal     96 vcpu - 192GB mem -            4.08 $/h
+#instance_type = "t3.medium"
+#instance_type = "c5.4xlarge"
+instance_type = "c5.metal"
+
+# AWS EC2 ami
+# sles sp4 ami (amazon/suse-sles-15-sp4-v20221216-hvm-ssd-x86_64)
+ami = "ami-0c544bda9765444c2"
+
+# route53 hosted zone
+route53_zone_id   = "XXXXXXXXXXXXXXXXXXXXX"
+route53_domain    = "myroute53domain.net"
+route53_subdomain = "lab"
+
+# Number of master instances
+node_count = "3"
+
+# Existing AWS SSH key-pair name - https://docs.aws.amazon.com/console/ec2/key-pairs
+key_name = "awsmysshkeyname"
+
+# AWS EC2 instance volume size (in GB)
+volume_size = "200"
+
+# AWS EC2 volume type
+volume_type = "gp2"
+

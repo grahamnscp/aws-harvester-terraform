@@ -1,0 +1,29 @@
+# Params.sh
+
+# params used in deployment scripts
+
+# aws access
+SSH_USERNAME=ec2-user
+SSH_KEY=/Users/myusername/.ssh/awsmysshkeyname
+SSH_OPTS="-o StrictHostKeyChecking=no -i $SSH_KEY"
+
+# rke2
+#RKE2_VERSION="v1.27.3+rke2r1"
+RKE2_VERSION="v1.27.10+rke2r1"
+RKE2_TOKEN="harvjointoken"
+
+# rancher
+#RANCHERSYSTEMUPGRADECONTROLLER="v0.13.3"
+RANCHERSYSTEMUPGRADECONTROLLER="v0.13.1"
+# leave RANCHERIMAGETAG blank for latest version
+RANCHERIMAGETAG="v2.8.2"
+#RANCHERCHARTSBRANCH="dev-v2.8"
+RANCHERCHARTSBRANCH="release-v2.8"
+#RANCHERMONITORINGCRD="102.0.5+up40.1.2"
+RANCHERMONITORINGCRD="103.1.0+up45.31.1"
+
+# harvester
+#HARVESTERREPOBRANCH="v1.3"
+HARVESTERREPOBRANCH="master"
+BOOTSTRAPADMINPWD=admin
+
