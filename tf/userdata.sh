@@ -14,7 +14,7 @@ sudo systemctl disable swap.target
 sudo swapoff -a
 
 # password for console
-echo ec2-user:s3cr3t1 | chpasswd
+echo ec2-user:yourpasswordhere | chpasswd
 
 sudo -u ec2-user -- ssh-keygen -t rsa
 

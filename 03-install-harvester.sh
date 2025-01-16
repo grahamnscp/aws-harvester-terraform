@@ -48,6 +48,10 @@ helm install harvester ./local/harvester/deploy/charts/harvester --namespace har
         --set rancherEmbedded=true \
         --set service.vip.enabled=false
 
+#        --set service.vip.enabled=true \
+#        --set service.vip.mode=static \
+#        --set service.vip.ip=10.0.1.160
+
 Log "\__pausing............300"
 sleep 300
 
